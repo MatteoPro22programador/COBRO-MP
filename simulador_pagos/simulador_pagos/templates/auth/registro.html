@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% from "_macros.html" import campo %}
+{% block contenido %}<h1>Crear cuenta</h1>
+<form method="post" class="form" novalidate>{{ form.hidden_tag() }}
+{{ campo(form.nombre) }}{{ campo(form.email) }}{{ campo(form.password) }}{{ campo(form.confirmar) }}
+{{ form.submit(class="btn") }}</form>{% endblock %}

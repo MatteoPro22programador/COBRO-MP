@@ -1,0 +1,8 @@
+{% macro campo(f) %}
+<label for="{{ f.id }}">{{ f.label.text }}</label>
+{{ f() }}
+{% for e in f.errors %}<div class="error-campo">{{ e }}</div>{% endfor %}
+{% endmacro %}
+{% macro boton_post(url, form, texto, clase="btn chico") %}
+<form method="post" action="{{ url }}">{{ form.hidden_tag() }}<button class="{{ clase }}">{{ texto }}</button></form>
+{% endmacro %}

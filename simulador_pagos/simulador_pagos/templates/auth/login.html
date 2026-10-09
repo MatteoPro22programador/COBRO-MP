@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% from "_macros.html" import campo %}
+{% block contenido %}<h1>Iniciar sesión</h1>
+<form method="post" class="form" novalidate>{{ form.hidden_tag() }}
+{{ campo(form.email) }}{{ campo(form.password) }}
+{{ form.submit(class="btn") }}</form>
+<p class="pista">¿Sin cuenta? <a href="{{ url_for('auth.registro') }}">Crea una</a>.</p>{% endblock %}

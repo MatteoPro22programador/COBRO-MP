@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titulo %}Simulador de pagos{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<nav>
+  <span class="marca">Simulador de pagos</span>
+  {% if current_user.is_authenticated %}
+    <a href="{{ url_for('productos.lista') }}">Productos</a>
+    <a href="{{ url_for('pedidos.lista') }}">Pedidos</a>
+    <a href="{{ url_for('pagos.historial') }}">Movimientos</a>
+    <form method="post" action="{{ url_for('auth.logout') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button>Salir ({{ current_user.nombre }})</button></form>
+  {% else %}
+    <a href="{{ url_for('auth.login') }}">Iniciar sesión</a>
+    <a href="{{ url_for('auth.registro') }}">Crear cuenta</a>
+  {% endif %}
+</nav>
+<main>
+{% for cat, msg in get_flashed_messages(with_categories=true) %}<div class="flash {{ cat }}" role="status">{{ msg }}</div>{% endfor %}
+{% block contenido %}{% endblock %}
+</main></body></html>

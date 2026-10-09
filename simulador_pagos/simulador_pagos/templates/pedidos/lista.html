@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block contenido %}<h1>Mis pedidos</h1>
+<a class="btn" href="{{ url_for('pedidos.nuevo') }}">Crear pedido</a>
+{% if pedidos %}<table style="margin-top:1rem"><tr><th>N.º</th><th>Fecha</th><th class="num">Total</th><th>Estado</th><th></th></tr>
+{% for p in pedidos %}<tr><td>#{{ p.id }}</td><td>{{ p.creado.strftime('%d/%m/%Y %H:%M') }}</td>
+<td class="num">$ {{ '%.2f'|format(p.total) }}</td><td><span class="estado {{ p.estado }}">{{ p.estado }}</span></td>
+<td><a href="{{ url_for('pedidos.detalle', id=p.id) }}">Ver</a></td></tr>{% endfor %}</table>
+{% else %}<p>No tienes pedidos. Crea uno con los productos disponibles.</p>{% endif %}{% endblock %}

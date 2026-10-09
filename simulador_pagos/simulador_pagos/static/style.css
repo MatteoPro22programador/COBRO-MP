@@ -1,0 +1,30 @@
+:root{--tinta:#1d2b3a;--papel:#f6f7f9;--linea:#d9dee5;--acento:#0f6b5c;--ok:#0f6b5c;--error:#b3261e;--aviso:#8a5a00}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.5 "Segoe UI",system-ui,sans-serif;color:var(--tinta);background:var(--papel)}
+nav{display:flex;gap:1.2rem;align-items:center;padding:.8rem 1.5rem;background:var(--tinta);color:#fff}
+nav a,nav button{color:#fff;text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;padding:0}
+nav .marca{font-weight:700;margin-right:auto}
+main{max-width:860px;margin:2rem auto;padding:0 1rem}
+h1{margin:0 0 1rem;font-size:1.6rem}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--linea)}
+th,td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--linea)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.form{background:#fff;border:1px solid var(--linea);padding:1.2rem;max-width:460px}
+.form label{display:block;margin:.8rem 0 .2rem;font-weight:600}
+input,textarea{width:100%;padding:.5rem;border:1px solid var(--linea);border-radius:4px;font:inherit}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #7fb8ac;outline-offset:2px}
+.btn,button.btn{display:inline-block;background:var(--acento);color:#fff;border:0;border-radius:4px;padding:.5rem 1rem;font:inherit;text-decoration:none;cursor:pointer;margin-top:1rem}
+.btn.sec{background:#fff;color:var(--tinta);border:1px solid var(--linea)}
+.btn.peligro{background:var(--error)}
+.btn.chico{padding:.2rem .6rem;margin:0}
+.error-campo{color:var(--error);font-size:.9rem}
+.flash{padding:.7rem 1rem;margin-bottom:1rem;border-left:4px solid}
+.flash.ok{background:#e6f3f0;border-color:var(--ok)}.flash.error{background:#fbeae9;border-color:var(--error)}
+.estado{padding:.1rem .6rem;border-radius:99px;font-size:.85rem;background:#e8ebef}
+.estado.pagado,.estado.aprobado,.estado.cobrado{background:#e6f3f0;color:var(--ok)}
+.estado.rechazado,.estado.cancelado{background:#fbeae9;color:var(--error)}
+.estado.pendiente{background:#fff3d6;color:var(--aviso)}
+.acciones{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.acciones form{margin:0}
+.pista{color:#5b6b7a;font-size:.9rem}
+@media(max-width:600px){table{font-size:.9rem}th,td{padding:.4rem}}

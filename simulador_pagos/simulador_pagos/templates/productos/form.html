@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% from "_macros.html" import campo %}
+{% block contenido %}<h1>{{ titulo }}</h1>
+<form method="post" class="form" novalidate>{{ form.hidden_tag() }}
+{{ campo(form.nombre) }}{{ campo(form.descripcion) }}{{ campo(form.precio) }}{{ campo(form.stock) }}
+{{ form.submit(class="btn") }} <a class="btn sec" href="{{ url_for('productos.lista') }}">Cancelar</a></form>{% endblock %}

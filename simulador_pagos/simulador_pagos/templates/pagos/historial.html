@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block contenido %}<h1>Movimientos</h1>
+{% if pagos %}<table><tr><th>Ref.</th><th>Pedido</th><th>Tipo</th><th class="num">Monto</th><th>Estado</th><th>Fecha</th></tr>
+{% for g in pagos %}<tr><td>{{ g.referencia }}</td><td><a href="{{ url_for('pedidos.detalle', id=g.pedido_id) }}">#{{ g.pedido_id }}</a></td>
+<td>{{ g.tipo }}</td><td class="num">$ {{ '%.2f'|format(g.monto) }}</td>
+<td><span class="estado {{ g.estado }}">{{ g.estado }}</span></td><td>{{ g.creado.strftime('%d/%m/%Y %H:%M') }}</td></tr>{% endfor %}</table>
+{% else %}<p>Aún no hay movimientos. Paga un pedido para ver el primero.</p>{% endif %}{% endblock %}
